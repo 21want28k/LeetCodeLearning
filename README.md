@@ -1,1 +1,12 @@
-leetCodeLearning
+- LRU算法
+  - [官网地址及详细信息](https://leetcode-cn.com/problems/lru-cache/solution/lruhuan-cun-ji-zhi-by-leetcode-solution/)
+  - 个人实现：
+    - O(n)基于单链表的LRU算法，可能有些问题，因为没有通过所有的示例。[链接](https://github.com/21want28k/LeetCodeLearning/blob/593c6d4346e78d489cda22742c74aed22b6bc8fa/src/com/company/xx/LRU.java)
+    - O(1)基于无头结点双链表+HashMap的LRU实现，通过力扣所有测试用例。[链接](https://github.com/21want28k/LeetCodeLearning/blob/593c6d4346e78d489cda22742c74aed22b6bc8fa/src/com/company/xx/LRUCache.java)
+    - O(1)基于带头结点的双链表+HashMap实现，通过力扣所有测试用例。[链接](https://github.com/21want28k/LeetCodeLearning/blob/593c6d4346e78d489cda22742c74aed22b6bc8fa/src/com/company/xx/LRUCache2.java)
+  - 小结：
+    - 基于单链表的，主要需要一个查找定位的过程，所以是O(n)。
+    - 不带头结点的实现，需要考虑到头指针和尾指针的边界情况，所以实现起来比较复杂，不如带头尾虚拟结点的来得方便。
+    - 为什么要用hashMap，主要是用来结点定位的功能，直接就能定位到结点所在的位置。
+    - 如果用泛型来实现的话，会更优雅一点，第二种就是用泛型设计的。
+    - 当移除旧结点，插入新节点的时候，一定要先移除掉map中的旧结点，要注意size，map要随着结点的增删一起改。这一点让我吃了很多亏，有的测试不通过就是因为这个。如果不用虚拟头尾结点，还得移动头尾指针，确实麻烦。
