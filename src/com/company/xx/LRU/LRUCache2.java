@@ -1,12 +1,15 @@
-package com.company.xx;
+package com.company.xx.LRU;
 
 import java.util.HashMap;
-import java.util.Timer;
 
-public class LRUCache {
+public class LRUCache2 {
+
     private static class Node {
         int key, value;
         Node pre, next;
+
+        public Node() {
+        }
 
         public Node(int key, int value, Node pre, Node next) {
             this.key = key;
@@ -21,30 +24,28 @@ public class LRUCache {
     private Node head, tail;
     private HashMap<Integer, Node> map;
 
-    public LRUCache(int capacity) {
+    public LRUCache2(int capacity) {
         this.map = new HashMap<>();
         this.capacity = capacity;
+        // 带头结点的双链表
+        head = new Node();
+        tail = new Node();
+        head.next = tail;
+        tail.next = head;
     }
 
     private void insertHead(Node node) {
-        node.next = head;
-        head.pre = node;
-        head = node;
+        // 多一步不需要考虑到断链问题
+        Node next = head.next;
+        node.next = next;
+        node.pre = head;
+        head.next = node;
+        next.pre = node;
     }
 
     private void removeNode(Node node) {
         Node pre = node.pre;
         Node next = node.next;
-        if (node == tail) {
-            pre.next = null;
-            tail = pre;
-            return;
-        }
-        if (node == head) {
-            next.pre = null;
-            head = next;
-            return;
-        }
         pre.next = next;
         next.pre = pre;
     }
@@ -62,12 +63,8 @@ public class LRUCache {
 
     public int get(int key) {
         Node target = this.map.get(key);
-        if (this.size == 0 || target == null) {
+        if (target == null) {
             return -1;
-        }
-
-        if (key == this.head.key) {
-            return this.head.value;
         }
 
         removeToHead(target);
@@ -75,45 +72,25 @@ public class LRUCache {
     }
 
     public void put(int key, int value) {
-        Node node = new Node(key, value, null, null);
-        if (this.size == 0) {
-            head = node;
-            tail = node;
-            size++;
-            this.map.put(key, node);
+        Node newNode = new Node(key, value, null, null);
+        Node oldNode = this.map.get(key);
+        // 如果存在
+        if (oldNode != null) {
+            oldNode.value = value;
+            removeToHead(oldNode);
             return;
         }
-
-        Node node1 = this.map.get(key);
-        if (node1 == head) {
-            node1.value = value;
-            this.map.put(key, node1);
-            return;
-        }
-        if (node1 != null) {
-            node1.value = value;
-            removeToHead(node1);
-            this.map.put(key, node1);
-            return;
-        }
+        // 如果不存在
         // 满了，去尾部插入头部
         if (this.size >= capacity) {
-            if (this.size == 1) {
-                this.map.remove(tail.key);
-                head = node;
-                tail = node;
-                this.map.put(key, node);
-                return;
-            }
-            this.map.remove(tail.key);
-            removeNode(tail);
-            insertHead(node);
-            this.map.put(key, node);
-        } else {
-            insertHead(node);
-            size++;
-            this.map.put(key, node);
+            this.map.remove(key);
+            // 因为有尾部虚拟结点，所以实际上是删除tail之前的
+            removeNode(tail.pre);
+            size--;
         }
+        insertHead(newNode);
+        size++;
+        this.map.put(key, newNode);
     }
 
     /*
@@ -122,7 +99,7 @@ public class LRUCache {
      */
 
     public static void main(String[] args) {
-        LRUCache lRUCache = new LRUCache(10);
+        LRUCache2 lRUCache = new LRUCache2(10);
         lRUCache.put(7, 28);
         lRUCache.put(7, 1);
         lRUCache.put(8, 15);

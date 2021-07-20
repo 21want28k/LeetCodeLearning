@@ -1,4 +1,4 @@
-package com.company.xx;
+package com.company.xx.LRU;
 
 public class LRU<E> {
     private static class Node<E> {
