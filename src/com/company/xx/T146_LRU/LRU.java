@@ -1,4 +1,4 @@
-package com.company.xx.LRU;
+package com.company.xx.T146_LRU;
 
 public class LRU<E> {
     private static class Node<E> {
