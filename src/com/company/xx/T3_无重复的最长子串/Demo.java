@@ -34,32 +34,11 @@ public class Demo {
     }
 
     public static int lengthOfLongestSubstring3(String s) {
-//        if (s.length() == 0 || s.length() == 1) {
-//            return s.length();
-//        }
-//        int max = 0;
-//        int left = 0;
-//        int right = 1;
-//        HashMap<Character, Integer> map = new HashMap<>();
-//        map.put(s.charAt(left), left);
-//        while (right < s.length()) {
-//            char rightChar = s.charAt(right);
-//            if (map.containsKey(rightChar) == false) {
-//                map.put(rightChar, right);
-//                right++;
-//            } else {
-//                max = Math.max(max, right - left);
-//                int newLeft = map.get(rightChar);
-//                left = newLeft + 1;
-//                map.remove(rightChar);
-//            }
-//        }
-//        max = Math.max(max, right - left);
-//        return max;
         int n = s.length(), result = 0;
         Map<Character, Integer> map = new HashMap<>();
         int right = 0;
         int left = 0;
+        // 右边是最主要的，因为右边一定会遍历到每一个位置上
         while (right < n) {
             char rightChar = s.charAt(right);
             if (map.containsKey(rightChar)) {
