@@ -1,5 +1,7 @@
 package com.company.xx.T416_DP_Partition_Equal_Subset_Sum;
 
+import java.util.Arrays;
+
 public class Solution {
     public static boolean canPartition(int[] nums) {
         int n = nums.length;
@@ -31,6 +33,7 @@ public class Solution {
                 }
             }
         }
+        System.out.println(Arrays.deepToString(dp));
         return dp[n - 1][m];
     }
 
@@ -100,9 +103,9 @@ public class Solution {
 
 
     public static void main(String[] args) {
-//        int[] nums = new int[]{1, 5, 11, 5};
-        int[] nums = new int[]{1, 1};
+        int[] nums = new int[]{1, 5, 11, 5};
+//        int[] nums = new int[]{1, 1};
 //        int[] nums = new int[]{1, 2, 3, 5};
-        System.out.println(canPartition2(nums));
+        System.out.println(canPartition(nums));
     }
 }
