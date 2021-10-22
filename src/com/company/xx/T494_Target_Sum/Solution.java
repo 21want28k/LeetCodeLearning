@@ -76,5 +76,6 @@ public class Solution {
 //        int[] nums = new int[]{1, 1, 1, 1, 1};
         int[] nums = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 1};
         System.out.println(findTargetSumWays2(nums, 1));
+        // test commit
     }
 }
