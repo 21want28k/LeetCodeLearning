@@ -1,5 +1,7 @@
 package com.company.xx.T322_零钱问题;
 
+import java.util.Arrays;
+
 public class Demo {
     public int coinChange(int[] coins, int amount) {
 
@@ -28,10 +30,55 @@ public class Demo {
         return f[amount];
     }
 
+    public int coinChange2(int[] coins, int amount) {
+        int n = coins.length;
+        int[] dp = new int[amount + 1];
+
+        for (int i = 0; i <= amount; i++) {
+            dp[i] = Integer.MAX_VALUE;
+        }
+        dp[0] = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < amount + 1; j++) {
+                if (j >= coins[i] && dp[j - coins[i]] < Integer.MAX_VALUE) {
+                    dp[j] = Math.min(dp[j], dp[j - coins[i]] + 1);
+                }
+            }
+            System.out.println(Arrays.toString(dp));
+        }
+        if (dp[amount] == Integer.MAX_VALUE) {
+            return -1;
+        }
+        return dp[amount];
+    }
+
+    public int coinChange3(int[] coins, int amount) {
+        int n = coins.length;
+        int[] dp = new int[amount + 1];
+
+        for (int i = 0; i <= amount; i++) {
+            dp[i] = Integer.MAX_VALUE;
+        }
+        dp[0] = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < amount + 1; j++) {
+                if (j >= coins[i] && dp[j - coins[i]] < Integer.MAX_VALUE) {
+                    dp[j] = Math.min(dp[j], dp[j - coins[i]] + 1);
+                }
+            }
+            System.out.println(Arrays.toString(dp));
+        }
+        return dp[amount];
+    }
+
     public static void main(String[] args) {
-        int f[] = new int[]{1,2,5};
-        int amount = 11;
+//        int f[] = new int[]{1, 2, 5};
+//        int amount = 11;
+        int f[] = new int[]{2};
+        int amount = 3;
         Demo demo = new Demo();
-        System.out.println(demo.coinChange(f,amount));
+        System.out.println(demo.coinChange3(f, amount));
     }
 }
