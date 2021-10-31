@@ -1,7 +1,5 @@
 package com.company.xx.T213_DP_House_Robber2;
 
-import java.util.Arrays;
-
 public class Solution {
 
     public static int rob(int[] nums) {
@@ -14,7 +12,6 @@ public class Solution {
         if (n == 2) {
             return Math.max(nums[0], nums[1]);
         }
-        //
         return Math.max(rob2(nums, 0, n - 2), rob2(nums, 1, n - 1));
     }
 
