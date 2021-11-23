@@ -1,8 +1,8 @@
-package com.company;
+package com.company.xx.greed.T561;
 
 import java.util.Arrays;
 
-public class Test {
+public class Solution {
 
     public static int arrayPairSum(int[] nums) {
         Arrays.sort(nums);

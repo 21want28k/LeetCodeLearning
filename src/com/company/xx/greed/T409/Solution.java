@@ -1,10 +1,10 @@
-package com.company.xx.DP;
+package com.company.xx.greed.T409;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Test1 {
+public class Solution {
     public static int longestPalindrome(String s) {
         Map<Character, Integer> map = new HashMap<>();
 
