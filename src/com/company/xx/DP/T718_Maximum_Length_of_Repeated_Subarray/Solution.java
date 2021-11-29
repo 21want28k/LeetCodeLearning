@@ -76,9 +76,39 @@ public class Solution {
         return max;
     }
 
+    /**
+     * 新的思路，但是是错误的解法，对比T1143
+     *
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public static int findLength4(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int m = nums2.length;
+
+        int[][] dp = new int[n + 1][m + 1]; // dp[i][j]: nums1:[0:i],nums2:[0:j]的最长连续子数组的长度是dp[i][j]
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (nums1[i - 1] == nums2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+
+        System.out.println(Arrays.deepToString(dp));
+        return dp[n][m];
+    }
+
     public static void main(String[] args) {
-        int[] nums1 = new int[]{1, 2, 3, 2, 1};
-        int[] nums2 = new int[]{3, 2, 1, 4, 7};
+//        int[] nums1 = new int[]{1, 2, 3, 2, 1};
+//        int[] nums2 = new int[]{3, 2, 1, 4, 7};
+        int[] nums1 = new int[]{0, 1, 1, 1, 1};
+        int[] nums2 = new int[]{1, 0, 1, 0, 1};
         System.out.println(findLength2(nums1, nums2));
+        System.out.println(findLength4(nums1, nums2));
     }
 }

@@ -45,9 +45,74 @@ public class Solution {
         return second;
     }
 
+    /**
+     * 利用股票里面的思想可以这么做
+     *
+     * @param nums
+     * @return
+     */
+    public static int rob3(int[] nums) {
+        int n = nums.length;
+
+        int[][] dp = new int[n][2];
+        // 不偷
+        dp[0][0] = 0;
+        // 偷
+        dp[0][1] = nums[0];
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] + nums[i]);
+        }
+
+        System.out.println(Arrays.deepToString(dp));
+        return Math.max(dp[n - 1][0], dp[n - 1][1]);
+    }
+
+    /**
+     * rob3解法的优化,错误的解法，新一轮依赖的旧值已经被更改了，就不能这么写了。
+     *
+     * @param nums
+     * @return
+     */
+    public static int rob4(int[] nums) {
+        int n = nums.length;
+
+        int notRob = 0;
+        int rob = nums[0];
+
+        for (int i = 1; i < n; i++) {
+            notRob = Math.max(notRob, rob);
+            rob = Math.max(rob, notRob + nums[i]);
+        }
+
+        return rob;
+    }
+
+    /**
+     * 修改rob4的做法，用pre代表上一个依赖的结果即可。
+     * @param nums
+     * @return
+     */
+    public static int rob5(int[] nums) {
+        int n = nums.length;
+
+        int notRob = 0;
+        int rob = nums[0];
+        int preNotRob;
+        int preRob;
+        for (int i = 1; i < n; i++) {
+            preRob = rob;
+            preNotRob = notRob;
+            notRob = Math.max(preNotRob, preRob);
+            rob = Math.max(preRob, preNotRob + nums[i]);
+        }
+
+        return rob;
+    }
+
     public static void main(String[] args) {
 //        int[] nums = new int[]{1, 2, 3, 1};
         int[] nums = new int[]{2, 7, 9, 3, 1};
-        System.out.println(rob2(nums));
+        System.out.println(rob4(nums));
     }
 }
