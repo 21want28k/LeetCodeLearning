@@ -1,5 +1,7 @@
 package com.company.xx.DP.T55_跳跃问题;
 
+import java.util.Arrays;
+
 /**
  * 属于存在性问题，动态规划四步骤，
  * 1。最后一步；
@@ -19,7 +21,7 @@ public class Demo {
                 if (result[j] == true && (i - j) <= nums[j]) {
                     result[i] = true;
                     break;
-                }else {
+                } else {
                     result[i] = false;
                 }
             }
@@ -27,8 +29,57 @@ public class Demo {
         return result[n - 1];
     }
 
+    public static boolean canJump2(int[] nums) {
+        int n = nums.length;
+
+        boolean[] dp = new boolean[n];
+        dp[n - 1] = true;
+
+        for (int i = n - 2; i >= 0; i--) {
+            for (int j = i + 1; j <= i + nums[i]; j++) {
+                if (dp[j] == true) {
+                    dp[i] = true;
+                    break;
+                } else {
+                    dp[i] = false;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(dp));
+        return dp[0];
+    }
+
+    public static boolean canJump3(int[] nums) {
+        int n = nums.length;
+        boolean[] results = new boolean[n];
+        if (n == 1) {
+            return true;
+        }
+
+        if (nums[0] == 0) {
+            return false;
+        }
+
+        results[0] = true;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0 && i + 1 < n && results[i + 1] == false) {
+                return false;
+            }
+            for (int j = 1; j <= nums[i]; j++) {
+                if (i + j <= n - 1) {
+                    results[i + j] = true;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(results));
+        return results[n - 1];
+    }
+
     public static void main(String[] args) {
-        int[] nums = new int[]{2,0,0};
-        System.out.println(canJump(nums));
+//        int[] nums = new int[]{2, 0, 0};
+//        int[] nums = new int[]{2, 3, 1, 1, 4};
+        int[] nums = new int[]{1, 0, 1, 0};
+        System.out.println(canJump3(nums));
     }
 }
