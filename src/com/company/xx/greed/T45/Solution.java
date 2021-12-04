@@ -30,9 +30,9 @@ public class Solution {
             }
             i = next;// 跳跃一次
             count++;
-            if (i >= n - 1) {
-                return count;
-            }
+//            if (i >= n - 1) {
+//                return count;
+//            }
         }
         return -1;
     }
@@ -57,8 +57,9 @@ public class Solution {
 //        int[] nums = new int[]{2, 3, 1, 1, 4};
 //        int[] nums = new int[]{1, 1, 1, 1, 1};
 //        int[] nums = new int[]{2, 3, 0, 1, 4};
-        int[] nums = new int[]{2, 3, 1};
+//        int[] nums = new int[]{2, 3, 1};
 //        int[] nums = new int[]{7, 0, 9, 6, 9, 6, 1, 7, 9, 0, 1, 2, 9, 0, 3};
+        int[] nums = new int[]{2, 0, 0, 0};
         System.out.println(jump(nums));
     }
 }
