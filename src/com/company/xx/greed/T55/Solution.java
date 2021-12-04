@@ -19,6 +19,7 @@ public class Solution {
             if (nums[i] == 0 && i + 1 < n && results[i + 1] == false) {
                 return false;
             }
+
             for (int j = 1; j <= nums[i]; j++) {
                 if (i + j <= n - 1) {
                     results[i + j] = true;
@@ -68,7 +69,7 @@ public class Solution {
         int n = nums.length;
         int rightmost = 0; // 能到达的最远index
         for (int i = 0; i < n; i++) {
-            if (i <= rightmost) {
+            if (i <= rightmost) { // 只要还在这个范围内，就可以继续跳。
                 // 可能出现[...5,0,0]这种情况，这次的不如上次的远
                 rightmost = Math.max(rightmost, i + nums[i]);
                 if (rightmost >= n - 1) {
