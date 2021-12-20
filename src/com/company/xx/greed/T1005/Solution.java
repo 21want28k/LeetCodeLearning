@@ -1,6 +1,7 @@
 package com.company.xx.greed.T1005;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Solution {
     public static int largestSumAfterKNegations(int[] nums, int k) {
@@ -60,5 +61,7 @@ public class Solution {
         int[] nums = new int[]{-4, -2, -3};
         int k = 4;
         System.out.println(largestSumAfterKNegations(nums, k));
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("a", "a");
     }
 }
