@@ -81,7 +81,7 @@ public class Solution {
     }
 
     /**
-     * optimize the former method
+     * revise the former method
      *
      * @param root
      * @return

@@ -3,6 +3,15 @@ package com.company.xx.binaryTree.utils;
 import com.company.xx.binaryTree.TreeNode;
 
 public class TreeUtils {
+    /**
+     *       1
+     *      / \
+     *     2   3
+     *    / \ / \
+     *   4  56  7
+     *
+     * @return
+     */
     public static TreeNode getTree() {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
