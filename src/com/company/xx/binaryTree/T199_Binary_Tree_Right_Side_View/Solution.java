@@ -1,6 +1,6 @@
-package com.company.xx.two_branch_tree.T199_Binary_Tree_Right_Side_View;
+package com.company.xx.binaryTree.T199_Binary_Tree_Right_Side_View;
 
-import com.company.xx.two_branch_tree.TreeNode;
+import com.company.xx.binaryTree.TreeNode;
 
 import java.util.*;
 

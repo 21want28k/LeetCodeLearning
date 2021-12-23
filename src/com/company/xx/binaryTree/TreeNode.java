@@ -1,4 +1,4 @@
-package com.company.xx.two_branch_tree;
+package com.company.xx.binaryTree;
 
 public class TreeNode {
     public int val;

@@ -1,6 +1,6 @@
-package com.company.xx.two_branch_tree.utils;
+package com.company.xx.binaryTree.utils;
 
-import com.company.xx.two_branch_tree.TreeNode;
+import com.company.xx.binaryTree.TreeNode;
 
 public class TreeUtils {
     public static TreeNode getTree() {

@@ -1,6 +1,6 @@
-package com.company.xx.two_branch_tree.T102_Binary_Tree_Level_Order_Traversal;
+package com.company.xx.binaryTree.T102_Binary_Tree_Level_Order_Traversal;
 
-import com.company.xx.two_branch_tree.TreeNode;
+import com.company.xx.binaryTree.TreeNode;
 
 import java.util.*;
 
