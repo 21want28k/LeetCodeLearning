@@ -32,28 +32,28 @@ public class Solution {
             // current layer index
             Node cur = leftest;
             Node nextHead = null;
-            Node nextCur = null;
+            Node tail = null;
             while (cur != null) {
                 if (cur.left != null) {
                     if (nextHead == null) {
                         nextHead = cur.left;
                     }
-                    if (nextCur == null) {
-                        nextCur = cur.left;
+                    if (tail == null) {
+                        tail = cur.left;
                     } else {
-                        nextCur.next = cur.left;
-                        nextCur = nextCur.next;
+                        tail.next = cur.left;
+                        tail = tail.next;
                     }
                 }
                 if (cur.right != null) {
                     if (nextHead == null) {
                         nextHead = cur.right;
                     }
-                    if (nextCur == null) {
-                        nextCur = cur.right;
+                    if (tail == null) {
+                        tail = cur.right;
                     } else {
-                        nextCur.next = cur.right;
-                        nextCur = nextCur.next;
+                        tail.next = cur.right;
+                        tail = tail.next;
                     }
                 }
                 cur = cur.next;

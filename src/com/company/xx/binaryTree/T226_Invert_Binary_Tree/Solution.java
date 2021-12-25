@@ -48,8 +48,8 @@ public class Solution {
 
         swap(root);
 
-        invertTree2(root.left);
-        invertTree2(root.right);
+        invertTree3(root.left);
+        invertTree3(root.right);
 
         return root;
     }
