@@ -57,14 +57,6 @@ public class Solution {
 
     /********************************************解法2******************************************************/
 
-    /**
-     * 根 左 右,non-recursion traverse idea fail:
-     * Because stack is from the bottom to the top. the father of the node could be find,
-     * but father's next node can't be searched.
-     *
-     * @param root
-     * @return
-     */
     public static Node connect2(Node root) {
         Stack<Node> nodeStack = new Stack<>();
         Node cur = root;
