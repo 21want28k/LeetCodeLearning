@@ -46,9 +46,6 @@ public class Solution {
         int depth = 1;
         while (!queue.isEmpty()) {
             int size = queue.size();
-//            if (size < Math.pow(2, depth)) {
-//                return depth;
-//            }
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
                 if (node.left == null && node.right == null) {
@@ -66,7 +63,16 @@ public class Solution {
         return depth;
     }
 
+    public static int minDepth4(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftDepth = minDepth4(root.left);
+        int rightDepth = minDepth4(root.right);
+        return Math.min(leftDepth, rightDepth) + 1;
+    }
+
     public static void main(String[] args) {
-        System.out.println(minDepth3(TreeUtils.getTree()));
+        System.out.println(minDepth4(TreeUtils.getTree()));
     }
 }
