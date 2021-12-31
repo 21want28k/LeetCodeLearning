@@ -22,8 +22,8 @@ public class Solution {
         if (root.left == null && root.right == null) {
             if (targetSum == root.val) {
                 result.add(new ArrayList<>(path));
+//                result.add(path);
             }
-//            path.remove(path.size() - 1);
         }
         traverse(root.left, targetSum - root.val, path, result);
         if (root.left != null) {
