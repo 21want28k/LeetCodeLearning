@@ -66,7 +66,7 @@ public class Solution {
             } else {
                 cur = stack.pop();
                 nodes.add(cur);
-                stack.push(cur.right);
+                cur = cur.right;
             }
         }
     }
