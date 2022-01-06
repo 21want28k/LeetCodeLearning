@@ -2,7 +2,8 @@ package com.company.xx.binaryTree.utils;
 
 import com.company.xx.binaryTree.TreeNode;
 
-import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class TreeUtils {
     /**
@@ -42,7 +43,49 @@ public class TreeUtils {
         return root;
     }
 
+    public static TreeNode constructTree(Integer[] array) {
+        if (array == null || array.length == 0 || array[0] == null) {
+            return null;
+        }
+
+        int index = 0;
+        int length = array.length;
+
+        TreeNode root = new TreeNode(array[0]);
+        Deque<TreeNode> nodeQueue = new LinkedList<>();
+        nodeQueue.offer(root);
+        TreeNode currNode;
+
+        while (index < length) {
+            // index指向的永远是孩子节点
+            index++;
+            if (index >= length) {
+                return root;
+            }
+            // 父亲节点
+            currNode = nodeQueue.poll();
+            Integer leftChild = array[index];
+            if (leftChild != null) {
+                currNode.left = new TreeNode(leftChild);
+                nodeQueue.offer(currNode.left);
+            }
+
+
+            index++;
+            if (index >= length) {
+                return root;
+            }
+            Integer rightChild = array[index];
+            if (rightChild != null) {
+                currNode.right = new TreeNode(rightChild);
+                nodeQueue.offer(currNode.right);
+            }
+        }
+
+        return root;
+    }
+
     public static void main(String[] args) {
-        TreeNode root = arraysToTree(new Integer[]{1, null, 2, null, null, 2});
+        TreeNode root = constructTree(new Integer[]{3, 0, 4, null, 2, null, null, 1});
     }
 }
