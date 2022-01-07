@@ -49,7 +49,6 @@ public class Solution {
         return root;
     }
 
-    TreeNode pre = new TreeNode(0);
 
     int sum = 0;
 
@@ -60,18 +59,17 @@ public class Solution {
         traverse3(root.right);
         sum += root.val;
         root.val = sum;
-//        root.val += pre.val;
-//        pre = root;
+
         traverse3(root.left);
     }
+
+    TreeNode pre = new TreeNode(0);
 
     public void traverse4(TreeNode root) {
         if (root == null) {
             return;
         }
         traverse4(root.right);
-//        sum += root.val;
-//        root.val = sum;
         root.val += pre.val;
         pre = root;
         traverse4(root.left);

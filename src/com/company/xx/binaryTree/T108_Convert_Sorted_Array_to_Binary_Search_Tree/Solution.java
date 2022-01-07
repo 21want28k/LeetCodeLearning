@@ -15,7 +15,8 @@ public class Solution {
         if (first > last) {
             return null;
         }
-        int mid = (first + last) / 2;
+//        int mid = (first + last) / 2;
+        int mid = first + ((last - first) / 2);
         TreeNode root = new TreeNode(nums[mid]);
         root.left = traverse(nums, first, mid - 1);
         root.right = traverse(nums, mid + 1, last);
