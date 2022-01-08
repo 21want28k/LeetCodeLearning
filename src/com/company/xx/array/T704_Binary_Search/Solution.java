@@ -13,7 +13,7 @@ public class Solution {
         if (first > last) {
             return -1;
         }
-        int mid = first + (last - first) / 2;
+        int mid = first + (last - first) >> 2;
         if (nums[mid] > target) {
             return recursion(nums, first, mid - 1, target);
         }
@@ -28,7 +28,7 @@ public class Solution {
         if (target < nums[0] || target > nums[n - 1]) {
             return -1;
         }
-        
+
         int first = 0;
         int last = nums.length - 1;
         while (first <= last) {
