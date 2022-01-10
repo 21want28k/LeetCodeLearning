@@ -13,7 +13,7 @@ public class Solution {
         if (first > last) {
             return -1;
         }
-        int mid = first + (last - first) >> 2;
+        int mid = first + ((last - first) >> 1);
         if (nums[mid] > target) {
             return recursion(nums, first, mid - 1, target);
         }
