@@ -1,4 +1,4 @@
-package com.company.xx.剑指offer.剑指_Offer_03_数组中重复的数字;
+package com.company.xx.剑指offer.剑指Offer_03_数组中重复的数字;
 
 import java.util.HashMap;
 
