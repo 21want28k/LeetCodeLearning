@@ -6,17 +6,17 @@ public class FireFoxHelper extends GoOnlineHelper {
     }
 
     @Override
-    void login() {
+    protected void login() {
         System.out.println("firefox help you login");
     }
 
     @Override
-    void scan() {
+    protected void scan() {
         System.out.println("firefox help you scan");
     }
 
     @Override
-    void logout() {
+    protected void logout() {
         System.out.println("firefox help you logout");
     }
 }

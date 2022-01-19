@@ -7,17 +7,17 @@ public class ChromeHelper extends GoOnlineHelper {
     }
 
     @Override
-    void login() {
+    protected void login() {
         System.out.println("chrome help you login");
     }
 
     @Override
-    void scan() {
+    protected void scan() {
         System.out.println("chrome help you scan");
     }
 
     @Override
-    void logout() {
+    protected void logout() {
         System.out.println("chrome help you logout");
     }
 }

@@ -12,13 +12,13 @@ public abstract class GoOnlineHelper {
         return this.logoutFlag;
     }
 
-    abstract void login();
+    protected abstract void login();
 
-    abstract void scan();
+    protected abstract void scan();
 
-    abstract void logout();
+    protected abstract void logout();
 
-    protected final void surfTheInternet() {
+    public final void surfTheInternet() {
         this.login();
         this.scan();
         if (logoutOrNot()) {
