@@ -39,7 +39,7 @@ public class Solution {
             // 先计算出对应的i右边的乘积
             iRight = iRight * a[i + 1];
             // 将i左边的乘积和i右边的乘积相乘得到结果。记住，result[]=iLeft[]就是i左侧的乘积
-            result[i] = result[i - 1] * iRight;
+            result[i] = result[i] * iRight;
         }
         return result;
     }
