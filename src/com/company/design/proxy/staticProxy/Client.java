@@ -1,4 +1,4 @@
-package com.company.design.proxy;
+package com.company.design.proxy.staticProxy;
 
 public class Client {
     public static void main(String[] args) {
@@ -7,5 +7,6 @@ public class Client {
         proxy.login("hhg", "111");
         proxy.killBoss();
         proxy.upgrade();
+
     }
 }

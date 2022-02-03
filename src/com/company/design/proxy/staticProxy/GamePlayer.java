@@ -1,4 +1,4 @@
-package com.company.design.proxy;
+package com.company.design.proxy.staticProxy;
 
 public class GamePlayer implements IGamePlayer {
     @Override

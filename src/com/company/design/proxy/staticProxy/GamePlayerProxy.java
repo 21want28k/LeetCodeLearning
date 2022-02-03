@@ -1,4 +1,4 @@
-package com.company.design.proxy;
+package com.company.design.proxy.staticProxy;
 
 public class GamePlayerProxy implements IGamePlayer {
     private IGamePlayer player = null;
