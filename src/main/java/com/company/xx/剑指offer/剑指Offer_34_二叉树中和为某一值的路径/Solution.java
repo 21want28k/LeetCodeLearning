@@ -21,7 +21,7 @@ public class Solution {
         }
         path.add(root.val);
         target = target - root.val;
-        if (target == 0) {
+        if (target == 0 && root.left == null && root.right == null) {
             result.add(new ArrayList<>(path));
 //            return;
         }
