@@ -17,11 +17,11 @@ public class Solution {
         if (n == 2) return 1;
         if (n == 3) return 2;
         if (n == 4) return 4;
-        int result = 1;
+        long result = 1;
         while (n > 4) {
-            result *= 3;
+            result = result * 3 % 1000000007;
             n -= 3;
         }
-        return result * n;
+        return (int) (result * n % 1000000007);
     }
 }
