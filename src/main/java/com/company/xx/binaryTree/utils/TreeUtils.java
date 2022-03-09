@@ -70,7 +70,6 @@ public class TreeUtils {
                 nodeQueue.offer(currNode.left);
             }
 
-
             index++;
             if (index >= length) {
                 return root;
