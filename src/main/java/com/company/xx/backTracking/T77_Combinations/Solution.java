@@ -40,6 +40,7 @@ public class Solution {
         }
 
         dfs2(n, k, begin + 1);
+
         path.addLast(begin);
         dfs2(n, k-1, begin + 1);
         path.removeLast();
