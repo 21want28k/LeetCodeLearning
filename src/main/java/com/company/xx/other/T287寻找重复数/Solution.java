@@ -38,5 +38,9 @@ public class Solution {
     public static void main(String[] args) {
         int[] nums = {1, 3, 4, 2};
         new Solution().findDuplicate2(nums);
+
+        int temp = nums[0];
+        nums[0] = 2;
+        System.out.println(temp);
     }
 }
