@@ -2,8 +2,6 @@ package com.company.xx.utils;
 
 import com.company.xx.剑指offer.ListNode;
 
-import java.util.List;
-
 public class SinglyLinkedListUtils {
 
     /**
@@ -22,8 +20,16 @@ public class SinglyLinkedListUtils {
         return head.next;
     }
 
+    public static void print(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val + ", ");
+            head = head.next;
+        }
+    }
+
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4};
-        arrayToList(array);
+        ListNode head = arrayToList(array);
+        print(head);
     }
 }
