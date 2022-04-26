@@ -44,6 +44,30 @@ public class Solution {
         return dp[n];
     }
 
+    public static boolean wordBreak3(String s, List<String> wordDict) {
+        Set<String> wordDictSet = new HashSet();
+
+        int maxLength = 0;
+
+        for (String s1 : wordDict) {
+            wordDictSet.add(s1);
+            maxLength = Math.max(s1.length(), maxLength);
+        }
+
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
+
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = i; j >= 0 && j >= i - maxLength; j--) {
+                if (dp[j] && wordDictSet.contains(s.substring(j, i))) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[s.length()];
+    }
+
     public static void main(String[] args) {
         // s = "leetcode", wordDict = ["leet","code"]
         String s = "leetcode";
