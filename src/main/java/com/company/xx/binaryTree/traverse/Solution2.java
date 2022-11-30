@@ -266,6 +266,11 @@ public class Solution2 {
         return res;
     }
 
+    /**
+     * 遍历+翻转存入的节点值，利用的还是原来的空间，不会增加额外的空间了。
+     * @param node
+     * @param list
+     */
     public static void addPath(TreeNode node, List<Integer> list) {
         int count = 0;
         while (node != null) {
