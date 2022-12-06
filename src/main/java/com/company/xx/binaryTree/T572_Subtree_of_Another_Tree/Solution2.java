@@ -143,5 +143,11 @@ public class Solution2 {
         isSubtree2(root, subRoot);
         int[] sushu = oula(7);
         System.out.println(Arrays.toString(sushu));
+
+        Map<String,int[]> map = new HashMap<>();
+        map.put("123",new int[]{1,2});
+        int[] ints = map.get("123");
+        ints[0] = 3;
+        System.out.println(Arrays.toString(map.get("123")));
     }
 }
