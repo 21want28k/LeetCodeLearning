@@ -100,8 +100,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 3, 1, 2, 4, 3};
-        int target = 7;
+        int[] nums = new int[]{1,2,3,4,5};
+        int target = 15;
         System.out.println(minSubArrayLen3(target, nums));
     }
 }
