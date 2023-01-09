@@ -78,6 +78,6 @@ public class Solution {
 //        int[] values = new int[]{1, 3, 5, 9};
 //        int bagWeight = 10;
 
-        System.out.println(method3(weights, values, bagWeight));
+        System.out.println(method2(weights, values, bagWeight));
     }
 }
