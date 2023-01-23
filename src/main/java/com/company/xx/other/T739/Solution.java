@@ -1,4 +1,4 @@
-package com.company.xx.other.T739每日温度;
+package com.company.xx.other.T739;
 
 import java.util.Deque;
 import java.util.LinkedList;
