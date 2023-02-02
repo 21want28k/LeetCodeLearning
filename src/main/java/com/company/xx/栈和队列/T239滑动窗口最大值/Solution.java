@@ -1,6 +1,5 @@
 package com.company.xx.栈和队列.T239滑动窗口最大值;
 
-import netscape.security.UserTarget;
 
 import java.util.Deque;
 import java.util.LinkedList;
